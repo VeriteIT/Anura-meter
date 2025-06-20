@@ -4,79 +4,326 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anura Meter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Barlow', 'Inter', Arial, sans-serif;
+      background: #fafbfc;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      margin-bottom: 24px;
+    }
+    .banner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 16px;
+      border: none;
+      box-shadow: none;
+    }
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+    h2 {
+      font-size: 2rem;
+      font-family: 'Barlow', Arial, sans-serif;
+      font-weight: 700;
+      margin-bottom: 18px;
+      margin-top: 0;
+    }
+    .focus-title {
+      font-size: 1.3rem;
+      font-family: 'Barlow', Arial, sans-serif;
+      font-weight: 700;
+      margin-bottom: 28px;
+      margin-top: 36px;
+      text-align: center;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-family: 'Barlow', Arial, sans-serif;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+    }
+    .focus-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: nowrap;
+      justify-content: center;
+      margin-bottom: 16px;
+      overflow-x: auto;
+      padding-bottom: 18px;
+    }
+    .focus-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(60,72,88,0.13);
+      padding: 20px 14px;
+      min-width: 180px;
+      max-width: 220px;
+      flex: 1 1 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      transition: box-shadow 0.2s;
+    }
+    .focus-card:hover {
+      box-shadow: 0 8px 24px rgba(60,72,88,0.18);
+    }
+    .focus-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+    }
+    .data-sources-section {
+      max-width: 900px;
+      margin: 24px auto 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .data-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .data-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(60,72,88,0.13);
+      padding: 24px 20px;
+      min-width: 220px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      transition: box-shadow 0.2s;
+      justify-content: flex-start;
+    }
+    .data-card:hover {
+      box-shadow: 0 8px 24px rgba(60,72,88,0.18);
+    }
+    .data-card h3 {
+      min-height: 48px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 10px;
+    }
+    .data-card p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .data-icon {
+      font-size: 2rem;
+      color: #2d7ff9;
+    }
+    .disclaimer-section {
+      max-width: 900px;
+      margin: 32px auto 24px auto;
+      padding: 0 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(60,72,88,0.13);
+      text-align: center;
+    }
+    .disclaimer-section h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+    .disclaimer-section p,
+    .about-section p,
+    .focus-card p,
+    .data-card h3,
+    .data-card p {
+      font-family: 'Barlow', Arial, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      margin-top: 0;
+      text-align: left;
+      display: block;
+    }
+    .about-section {
+      max-width: 1200px;
+      margin: 24px auto 0 auto;
+      padding: 0 20px;
+    }
+    .focus-card p {
+      margin: 0;
+      text-align: left;
+      text-indent: 0;
+    }
+    @media (max-width: 700px) {
+      .focus-cards {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .focus-card {
+        min-width: 30%;
+        max-width: 32%;
+        flex: 1 1 30%;
+        margin-bottom: 18px;
+      }
+      .focus-card:nth-child(n+4) {
+        min-width: 48%;
+        max-width: 49%;
+        flex: 1 1 48%;
+      }
+    }
+    .anura-btn {
+      background: #672b49;
+      color: #fff;
+      font-family: 'Barlow', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 16px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(60,72,88,0.28);
+      transition: box-shadow 0.25s cubic-bezier(.4,2,.6,1), background 0.2s;
+      display: inline-block;
+    }
+    .anura-btn:hover {
+      box-shadow: 0 16px 48px rgba(60,72,88,0.32);
+    }
+  </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: Arial, sans-serif;">
-
+<body>
   <!-- Banner Section -->
-  <div style="width: 100%; max-width: 1200px; margin: 0 auto;">
-    <img src="Anura Meter Banner.png" alt="Anura Meter Banner" style="width: 100%; height: auto; display: block; border-radius: 12px;" />
+  <div class="banner">
+    <a href="https://manthri.lk/en/anura-meter" target="_blank" rel="noopener noreferrer" style="display:block;">
+      <img src="Anura Meter Banner.png" alt="Anura Meter Banner" style="display:block; width:100%; border:none; box-shadow:none;" />
+    </a>
   </div>
 
   <!-- About the Anura Meter Section -->
-  <div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-    <h2 style="font-size: 28px; font-weight: bold; margin-bottom: 16px;">About the Anura Meter</h2>
-    <p style="font-size: 16px; line-height: 1.6;">
-      Anura Meter tracks selected manifesto promises of President Anura Kumara Dissanayake based on their alignment with key areas of public interest, relating to economic reform, governance, anti-corruption, social protection, and law and order.
+  <div class="about-section container">
+    <h2>About the Anura Meter</h2>
+    <p style="text-align: justify;">
+      The Anura Meter tracks the progress of selected proposals in President Anura Kumara Dissanayake's 2024 Presidential Election manifesto. The selection is limited due to resource constraints, and is focused on a set of promises that is thought to have high public interest. The progress is updated as and when we receive information from the government or from any other sources. We welcome any assistance that you could provide in improving what is tracked and in updating progress.
     </p>
   </div>
 
   <!-- Areas of Focus Section -->
-  <div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-    <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 24px;">Areas of Focus</h2>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
-      
-      <div style="flex: 1 1 300px; background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
-        <h3 style="margin-top: 0;">Economic Reform</h3>
-        <p>Focus on investment, trade, public finance, and tax reforms.</p>
+  <div class="container" style="margin-top: 40px;">
+    <div class="focus-title">Key Areas of Focus</div>
+    <div class="focus-cards">
+      <div class="focus-card">
+        <span class="focus-icon">
+          <!-- Economic Reform: Dollar sign SVG -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="#111" stroke-width="2" fill="white"/><text x="50%" y="58%" text-anchor="middle" fill="#111" font-size="16" font-family="Arial" dy=".3em">$</text></svg>
+        </span>
+        <div>
+          <h3>Economic Reform</h3>
+          <p style="margin:0;">focus on investment, trade, public finance, and tax reforms</p>
+        </div>
       </div>
-
-      <div style="flex: 1 1 300px; background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
-        <h3 style="margin-top: 0;">Governance</h3>
-        <p>Address processes and systems of decision-making, coordination, and management within the government for better transparency and accountability.</p>
+      <div class="focus-card">
+        <span class="focus-icon">
+          <!-- Governance: Shield SVG -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 3L24 7V14C24 20 14 25 14 25C14 25 4 20 4 14V7L14 3Z" stroke="#111" stroke-width="2" fill="white"/></svg>
+        </span>
+        <div>
+          <h3>Governance</h3>
+          <p style="margin:0;">processes and systems of decision-making, coordination, and management within the government for better transparency and accountability</p>
+        </div>
       </div>
-
-      <div style="flex: 1 1 300px; background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
-        <h3 style="margin-top: 0;">Anti-Corruption</h3>
-        <p>Focus on implementing systems and legal frameworks to prevent, detect, and punish corrupt practices within public institutions and government operations.</p>
+      <div class="focus-card">
+        <span class="focus-icon">
+          <!-- Anti-Corruption: Handcuffs SVG -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="19" r="3" stroke="#111" stroke-width="2" fill="white"/><circle cx="19" cy="9" r="3" stroke="#111" stroke-width="2" fill="white"/><path d="M11.5 16.5L16.5 11.5" stroke="#111" stroke-width="2"/></svg>
+        </span>
+        <div>
+          <h3>Anti-Corruption</h3>
+          <p style="margin:0;">implementing systems and legal frameworks to prevent, detect, and punish corrupt practices within public institutions and government operations</p>
+        </div>
       </div>
-
-      <div style="flex: 1 1 300px; background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
-        <h3 style="margin-top: 0;">Social Protection</h3>
-        <p>Refer to policies, programs, and regulatory mechanisms aimed at reducing poverty, vulnerability, and discrimination.</p>
+      <div class="focus-card">
+        <span class="focus-icon">
+          <!-- Social Protection: Heart SVG -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 24S4 17 4 10.5C4 7 7 4 10.5 4C12.5 4 14 5.5 14 5.5C14 5.5 15.5 4 17.5 4C21 4 24 7 24 10.5C24 17 14 24 14 24Z" stroke="#111" stroke-width="2" fill="white"/></svg>
+        </span>
+        <div>
+          <h3>Social Protection</h3>
+          <p>policies, programs, and regulatory mechanisms aimed at reducing poverty, vulnerability, and discrimination</p>
+        </div>
       </div>
-
-      <div style="flex: 1 1 300px; background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
-        <h3 style="margin-top: 0;">Law and Order</h3>
-        <p>Focus on delivering justice for past political violence, ensuring accountability for high-profile crimes, and upholding the rule of law.</p>
+      <div class="focus-card">
+        <span class="focus-icon">
+          <!-- Law and Order: Gavel SVG -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="17" y="5" width="6" height="2" rx="1" transform="rotate(45 17 5)" fill="white" stroke="#111" stroke-width="2"/><rect x="7" y="15" width="6" height="2" rx="1" transform="rotate(45 7 15)" fill="white" stroke="#111" stroke-width="2"/><rect x="12" y="10" width="8" height="2" rx="1" transform="rotate(45 12 10)" fill="white" stroke="#111" stroke-width="2"/></svg>
+        </span>
+        <div>
+          <h3>Law and Order</h3>
+          <p style="margin:0;">delivering justice for past political violence, ensuring accountability for high-profile crimes, and upholding the rule of law</p>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Data Sources Section -->
-  <div style="max-width: 800px; margin: 60px auto; padding: 0 20px;">
-    <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 24px; text-align: center;">Data Sources</h2>
-    <ul style="list-style-type: disc; padding-left: 20px; font-size: 16px; line-height: 1.8;">
-      <li>Publicly available information from official government sources</li>
-      <li>Government responses to Right to Information (RTI) requests</li>
-      <li>Crowd-sourced updates verified by the Parliamentary Research Team at Verité Research</li>
-    </ul>
+  <div class="data-sources-section">
+    <div class="focus-title">Data Sources</div>
+    <div class="data-cards">
+      <div class="data-card">
+        <span class="data-icon">📄</span>
+        <div>
+          <h3 style="margin-bottom:4px; font-weight: bold;">Publicly Available Information</h3>
+          <p style="margin:0; font-weight: 400;">Publicly available online information from official government sources</p>
+        </div>
+      </div>
+      <div class="data-card">
+        <span class="data-icon">📬</span>
+        <div>
+          <h3 style="margin-bottom:4px; font-weight: bold;">Government Responses</h3>
+          <p style="margin:0; font-weight: 400;">Government responses to Right to Information (RTI) requests</p>
+        </div>
+      </div>
+      <div class="data-card">
+        <span class="data-icon">👥</span>
+        <div>
+          <h3 style="margin-bottom:4px; font-weight: bold;">Crowd-Sourced Updates</h3>
+          <p style="margin:0; font-weight: 400;">Crowd-sourced updates, verified by the Parliamentary Research Team at Verité Research</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Disclaimers Section -->
-  <div style="max-width: 800px; margin: 60px auto; padding: 0 20px;">
-    <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 24px; text-align: center;">Disclaimers of the Initiative</h2>
-    
-    <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+  <!-- Visit the Anura Meter Button -->
+  <div style="width:100%;display:flex;justify-content:center;margin:32px 0 0 0;">
+    <a href="https://manthri.lk/en/anura-meter" target="_blank" rel="noopener noreferrer" class="anura-btn">Visit the Anura Meter</a>
+  </div>
+
+  <div class="focus-title">Disclaimers of the Initiative</div>
+  <div class="disclaimer-text" style="max-width:900px;margin:32px auto 24px auto;padding:0 20px;text-align:justify;">
+    <p>
       The 24 promises that were selected were based on our observations on the most critical elements of the manifesto that generated high public interest.
     </p>
-    <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+    <p>
       This is a best effort initiative, where small mistakes and oversights are possible. We seek to crowdsource correction for any inadvertent errors.
     </p>
-    <p style="font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+    <p>
       The inclusion or omission of a promise on this platform should not be considered an endorsement.
     </p>
-    <p style="font-size: 16px; line-height: 1.6;">
+    <p>
       Verité Research takes no responsibility for any opinions, views, conclusions derived, or representations made, etc., by any individual or organisation based on their engagement with and interpretation of data available through the Anura Meter.
     </p>
   </div>
