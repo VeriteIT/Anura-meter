@@ -204,6 +204,11 @@
     .anura-btn:hover {
       box-shadow: 0 16px 48px rgba(60,72,88,0.32);
     }
+    @media (max-width: 900px) {
+      .progress-cards {
+        flex-wrap: wrap !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -279,31 +284,68 @@
     </div>
   </div>
 
-  <!-- Data Sources Section -->
+  <!-- Progress Statuses and Data Sources Section -->
+  <div class="progress-status-section" style="max-width:1200px;margin:36px auto 36px auto;padding:0 20px;">
+    <div class="focus-title" style="margin-top:0;margin-bottom:18px;">Progress Statuses</div>
+    <div class="progress-cards" style="display:flex;gap:20px;flex-wrap:nowrap;justify-content:center;">
+      <div class="focus-card" style="min-width:160px;max-width:200px;align-items:flex-start;padding:20px 14px;">
+        <img src="Progress statuses/4.1 No update.png" alt="No update" style="width:48px;height:48px;object-fit:contain;image-rendering:auto;border-radius:6px;margin-bottom:14px;" />
+        <div style="font-weight:700;font-size:1.1rem;font-family:'Barlow',Arial,sans-serif;margin-bottom:6px;">No update</div>
+        <div style="font-size:16px;font-weight:400;line-height:1.6;font-family:'Barlow',Arial,sans-serif;">No visible action has been taken or recorded by any official source considered.</div>
+      </div>
+      <div class="focus-card" style="min-width:160px;max-width:200px;align-items:flex-start;padding:20px 14px;">
+        <img src="Progress statuses/4.2 Initiated.png" alt="Initiated" style="width:48px;height:48px;object-fit:contain;image-rendering:auto;border-radius:6px;margin-bottom:14px;" />
+        <div style="font-weight:700;font-size:1.1rem;font-family:'Barlow',Arial,sans-serif;margin-bottom:6px;">Initiated</div>
+        <div style="font-size:16px;font-weight:400;line-height:1.6;font-family:'Barlow',Arial,sans-serif;">Action has been taken into consideration through a budget allocation or cabinet decision.</div>
+      </div>
+      <div class="focus-card" style="min-width:160px;max-width:200px;align-items:flex-start;padding:20px 14px;">
+        <img src="Progress statuses/4.3 Partially Kept.png" alt="Partially Kept" style="width:48px;height:48px;object-fit:contain;image-rendering:auto;border-radius:6px;margin-bottom:14px;" />
+        <div style="font-weight:700;font-size:1.1rem;font-family:'Barlow',Arial,sans-serif;margin-bottom:6px;">Partially kept</div>
+        <div style="font-size:16px;font-weight:400;line-height:1.6;font-family:'Barlow',Arial,sans-serif;">Steps have been taken to approve the action which is visible through i.e. a cabinet decision or gazetted bill, but has not been fully executed.</div>
+      </div>
+      <div class="focus-card" style="min-width:160px;max-width:200px;align-items:flex-start;padding:20px 14px;">
+        <img src="Progress statuses/4.4 Kept.png" alt="Kept" style="width:48px;height:48px;object-fit:contain;image-rendering:auto;border-radius:6px;margin-bottom:14px;" />
+        <div style="font-weight:700;font-size:1.1rem;font-family:'Barlow',Arial,sans-serif;margin-bottom:6px;">Kept</div>
+        <div style="font-size:16px;font-weight:400;line-height:1.6;font-family:'Barlow',Arial,sans-serif;">The promise has been fully implemented.</div>
+      </div>
+      <div class="focus-card" style="min-width:160px;max-width:200px;align-items:flex-start;padding:20px 14px;">
+        <img src="Progress statuses/4.5 Broken.png" alt="Broken" style="width:48px;height:48px;object-fit:contain;image-rendering:auto;border-radius:6px;margin-bottom:14px;" />
+        <div style="font-weight:700;font-size:1.1rem;font-family:'Barlow',Arial,sans-serif;margin-bottom:6px;">Broken</div>
+        <div style="font-size:16px;font-weight:400;line-height:1.6;font-family:'Barlow',Arial,sans-serif;">The promise has been contradicted or actively reversed.</div>
+      </div>
+    </div>
+  </div>
   <div class="data-sources-section">
     <div class="focus-title">Data Sources</div>
-    <div class="data-cards">
-      <div class="data-card">
+    <div class="data-cards" style="margin-bottom: 28px; gap: 20px;">
+      <div class="data-card" style="min-width:260px;max-width:300px;padding:24px 12px;">
         <span class="data-icon">📄</span>
         <div>
-          <h3 style="margin-bottom:4px; font-weight: bold;">Publicly Available Information</h3>
+          <h3 style="margin-bottom:2px; font-weight: bold;">Publicly Available Information</h3>
           <p style="margin:0; font-weight: 400;">Publicly available online information from official government sources</p>
         </div>
       </div>
-      <div class="data-card">
+      <div class="data-card" style="min-width:260px;max-width:300px;padding:24px 12px;">
         <span class="data-icon">📬</span>
         <div>
-          <h3 style="margin-bottom:4px; font-weight: bold;">Government Responses</h3>
+          <h3 style="margin-bottom:2px; font-weight: bold;">Government Responses</h3>
           <p style="margin:0; font-weight: 400;">Government responses to Right to Information (RTI) requests</p>
         </div>
       </div>
-      <div class="data-card">
+      <div class="data-card" style="min-width:260px;max-width:300px;padding:24px 12px;">
         <span class="data-icon">👥</span>
         <div>
-          <h3 style="margin-bottom:4px; font-weight: bold;">Crowd-Sourced Updates</h3>
+          <h3 style="margin-bottom:2px; font-weight: bold;">Crowd-Sourced Updates</h3>
           <p style="margin:0; font-weight: 400;">Crowd-sourced updates, verified by the Parliamentary Research Team at Verité Research</p>
         </div>
       </div>
+    </div>
+    <!-- Official Government Sources Q&A -->
+    <div style="max-width:900px;margin:0 auto 0 auto;padding-left:0;padding-right:0;text-align:left;">
+      <strong>What are official government sources?</strong>
+      <p style="margin:8px 0 0 0; line-height:1.6;">
+        Our sources are official government documents and publicly accessible records that provide verified information on progress made on the promises by the government. Some of these sources include, but are not limited to, cabinet decisions, budget documents, gazetted documents, acts, annual reports, and data from government websites. However, we do not consider statements provided by public officials as official sources.
+      </p>
     </div>
   </div>
 
@@ -315,7 +357,7 @@
   <div class="focus-title">Disclaimers of the Initiative</div>
   <div class="disclaimer-text" style="max-width:900px;margin:32px auto 24px auto;padding:0 20px;text-align:justify;">
     <p>
-      The 24 promises that were selected were based on our observations on the most critical elements of the manifesto that generated high public interest.
+      The 22 promises that were selected were based on our observations on the most critical elements of the manifesto that generated high public interest.
     </p>
     <p>
       This is a best effort initiative, where small mistakes and oversights are possible. We seek to crowdsource correction for any inadvertent errors.
